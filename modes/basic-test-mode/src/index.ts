@@ -63,7 +63,7 @@ const extensionDependencies = {
   '@ohif/extension-cornerstone-dicom-pmap': '^3.0.0',
   '@ohif/extension-dicom-pdf': '^3.0.1',
   '@ohif/extension-dicom-video': '^3.0.1',
-  '@ohif/extension-test': '^0.0.1',
+  '@ohif/extension-test': '*',
 };
 
 function modeFactory() {
@@ -86,9 +86,10 @@ function modeFactory() {
       initToolGroups(extensionManager, toolGroupService, commandsManager);
 
       // init customizations
-      customizationService.setCustomizations([
-        '@ohif/extension-test.customizationModule.custom-context-menu',
-      ]);
+      // dunno why dis broken tbh
+      //customizationService.addModeCustomizations([
+      //  '@ohif/extension-test.customizationModule.custom-context-menu',
+      //]);
 
       toolbarService.addButtons([...toolbarButtons, ...moreTools]);
       toolbarService.createButtonSection('primary', [
@@ -154,6 +155,11 @@ function modeFactory() {
               // Can use cornerstone.measurements for all measurements
               rightPanels: [cornerstone.panel, tracked.measurements, cornerstone.measurements],
               rightPanelResizable: true,
+              rightPanels: [
+                cornerstone.panel,
+                tracked.measurements,
+                '@ohif/extension-test.panelModule.placeholder',
+              ],
               // rightPanelClosed: true, // optional prop to start with collapse panels
               viewports: [
                 {
@@ -190,6 +196,7 @@ function modeFactory() {
         },
       },
     ],
+    defaultExtensions: extensionDependencies,
     extensions: extensionDependencies,
     // Default protocol gets self-registered by default in the init
     hangingProtocol: 'default',
