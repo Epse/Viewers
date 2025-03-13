@@ -1,21 +1,20 @@
-import { MeasurementService, Types, ViewportGridService } from "@ohif/core";
-import { ArrowAnnotateTool, ProbeTool } from "@cornerstonejs/tools";
+import { MeasurementService, Types, ViewportGridService } from '@ohif/core';
+import { ArrowAnnotateTool, ProbeTool } from '@cornerstonejs/tools';
 
-import { id } from "./id";
+import { id } from './id';
 
-import hpTestSwitch from "./hpTestSwitch";
+import hpTestSwitch from './hpTestSwitch';
 
-import getCustomizationModule from "./getCustomizationModule";
-// import {setViewportZoomPan, storeViewportZoomPan } from './custom-viewport/setViewportZoomPan';
+import getCustomizationModule from './getCustomizationModule';
 // import {setViewportZoomPan, storeViewportZoomPan } from './custom-viewport/setViewportZoomPan';
 //import sameAs from './custom-attribute/sameAs';
 //import numberOfDisplaySets from './custom-attribute/numberOfDisplaySets';
 //import maxNumImageFrames from './custom-attribute/maxNumImageFrames';
-import React from "react";
-import { Button, Label } from "@ohif/ui-next";
+import React from 'react';
+import { Button, Label } from '@ohif/ui-next';
 
 /**
- * The test extension provides additional behavior for testing various
+ * The test extension provides additional behaviour for testing various
  * customizations and settings for OHIF.
  */
 const testExtension: Types.Extensions.Extension = {
@@ -24,8 +23,7 @@ const testExtension: Types.Extensions.Extension = {
    */
   id,
 
-  /**
-   * Register additional behavior:
+  /** Register additional behaviour:
    *   * HP custom attribute seriesDescriptions to retrieve an array of all series descriptions
    *   * HP custom attribute numberOfDisplaySets to retrieve the number of display sets
    *   * HP custom attribute numberOfDisplaySetsWithImages to retrieve the number of display sets containing images
@@ -117,8 +115,8 @@ const testExtension: Types.Extensions.Extension = {
       ArrowAnnotateTool.hydrate(
         viewportGridService.getActiveViewportId(),
         [
-          [0, 100, 100],
-          [0, 200, 200],
+          [0, 10, 10],
+          [0, 20, 20],
         ],
         'placeholder'
       );
@@ -126,7 +124,7 @@ const testExtension: Types.Extensions.Extension = {
     const onLogBtn = () => {
       const measurementService: MeasurementService =
         params.servicesManager.services.MeasurementService;
-      console.log(measurementService.getMeasurements());
+      console.log(measurementService.getMeasurements().map(x => x.points));
     };
     const panel = () => {
       return (
