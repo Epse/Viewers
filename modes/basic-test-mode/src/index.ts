@@ -152,12 +152,11 @@ function modeFactory() {
               // rightPanels: [dicomSeg.panel, ohif.measurements],
               leftPanels: [tracked.thumbnailList],
               leftPanelResizable: true,
-              // Can use cornerstone.measurements for all measurements
-              rightPanels: [cornerstone.panel, tracked.measurements, cornerstone.measurements],
               rightPanelResizable: true,
               rightPanels: [
                 cornerstone.panel,
                 tracked.measurements,
+                cornerstone.measurements,
                 '@ohif/extension-test.panelModule.placeholder',
               ],
               // rightPanelClosed: true, // optional prop to start with collapse panels

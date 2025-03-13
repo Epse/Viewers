@@ -1,12 +1,14 @@
 import { MeasurementService, Types, ViewportGridService } from '@ohif/core';
 import { ArrowAnnotateTool, ProbeTool } from '@cornerstonejs/tools';
-
 import { id } from './id';
 
 import hpTestSwitch from './hpTestSwitch';
 
 import getCustomizationModule from './getCustomizationModule';
 // import {setViewportZoomPan, storeViewportZoomPan } from './custom-viewport/setViewportZoomPan';
+//import sameAs from './custom-attribute/sameAs';
+//import numberOfDisplaySets from './custom-attribute/numberOfDisplaySets';
+//import maxNumImageFrames from './custom-attribute/maxNumImageFrames';
 //import sameAs from './custom-attribute/sameAs';
 //import numberOfDisplaySets from './custom-attribute/numberOfDisplaySets';
 //import maxNumImageFrames from './custom-attribute/maxNumImageFrames';
